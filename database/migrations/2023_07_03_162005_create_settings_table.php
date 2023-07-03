@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('fb');
             $table->string('twitter');
             $table->string('ig');
-            $table->string('logo');
-            $table->integer('visit');
+            $table->string('logo')->nullable();
+            $table->integer('visit')->default(0);
             $table->timestamps();
         });
     }

@@ -31,6 +31,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin_logout');
 
     Route::get('/setting', [AdminSettingController::class, 'edit'])->name('setting');
+    Route::post('/setting-update', [AdminSettingController::class, 'update'])->name('setting.update');
 
 
     Route::get('/profil', [AdminProfilController::class, 'edit'])->name('profile.edit');
