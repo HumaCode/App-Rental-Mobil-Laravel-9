@@ -30,6 +30,13 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin_logout');
 
+    Route::get('/data-admin', [AdminController::class, 'data_admin'])->name('data.admin');
+    Route::get('/data-admin/tambah', [AdminController::class, 'tambah_admin'])->name('tambah.admin');
+    Route::post('/data-admin/tambah', [AdminController::class, 'store_admin'])->name('store.admin');
+    Route::get('/data-admin/edit/{id}', [AdminController::class, 'edit_admin'])->name('edit.admin');
+    Route::post('/data-admin/update/{id}', [AdminController::class, 'update_admin'])->name('update.admin');
+    Route::get('/data-admin/delete/{id}', [AdminController::class, 'delete_admin'])->name('delete.admin');
+
     Route::get('/setting', [AdminSettingController::class, 'edit'])->name('setting');
     Route::post('/setting-update', [AdminSettingController::class, 'update'])->name('setting.update');
 

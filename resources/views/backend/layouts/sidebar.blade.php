@@ -15,6 +15,7 @@
                         class="nav-text">Pengaturan</span></a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('setting') }}">Website</a></li>
+                    <li><a href="{{ route('data.admin') }}">Daftar Admin</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Profile</a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('profile.update') }}">Ubah Profil</a></li>
