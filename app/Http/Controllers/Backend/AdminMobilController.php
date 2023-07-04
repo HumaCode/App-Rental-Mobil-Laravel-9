@@ -145,6 +145,11 @@ class AdminMobilController extends Controller
             Image::make($image)->resize(500, 360)->save('backend/uploads/mobil/' . $name_gen);
             $data_mobil->gambar    = 'backend/uploads/mobil/' . $name_gen;
         }
+        if ($request->status != null) {
+            $stts = 1;
+        } else {
+            $stts = 0;
+        }
 
         $data_mobil->nama_mobil       = $request->nama_mobil;
         $data_mobil->slug             = $request->slug;
@@ -154,7 +159,7 @@ class AdminMobilController extends Controller
         $data_mobil->jenis_bbm        = $request->jenis_bbm;
         $data_mobil->ket_lain         = $request->ket_lain;
         $data_mobil->harga_sewa       = $request->harga_sewa;
-        // $data_mobil->status           = 'tersedia';
+        $data_mobil->status           = $stts;
         $data_mobil->save();
 
         $notification = array(

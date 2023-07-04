@@ -119,7 +119,9 @@
 
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" checked id="invalidCheck">
+                            <input class="form-check-input" name="status" type="checkbox"
+                                value="{{ $dataMobil->status == 1 ? '1' : '0' }}" {{ $dataMobil->status == 1 ? 'checked'
+                            : '' }} id="invalidCheck">
                             <label class="form-check-label text-dark" for="invalidCheck">
                                 Status Mobil
                             </label>
