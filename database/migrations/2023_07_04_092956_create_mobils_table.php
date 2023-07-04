@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('jenis_bbm');
             $table->text('ket_lain');
             $table->string('harga_sewa');
-            $table->string('tgl_sewa');
-            $table->string('tgl_selesai');
+            $table->string('tgl_sewa')->nullable();
+            $table->string('tgl_selesai')->nullable();
             $table->string('status');
             $table->string('gambar');
             $table->timestamps();

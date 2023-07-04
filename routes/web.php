@@ -47,7 +47,13 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profil-password', [AdminProfilController::class, 'ubahPassword'])->name('ubah.password');
     Route::post('/profil-password-update', [AdminProfilController::class, 'updatePassword'])->name('update.password');
 
-    Route::get('/data-mobil', [AdminMobilController::class, 'index'])->name('mobil');
+    Route::get('/mobil/view', [AdminMobilController::class, 'index'])->name('mobil');
+    Route::get('/mobil/create', [AdminMobilController::class, 'create'])->name('create.mobil');
+    Route::get('/mobil/checkSlug', [AdminMobilController::class, 'checkSlug']);
+    Route::post('/mobil/store', [AdminMobilController::class, 'store'])->name('store.mobil');
+    Route::get('/mobil/edit/{slug}', [AdminMobilController::class, 'edit'])->name('edit.mobil');
+    Route::post('/mobil/update/{slug}', [AdminMobilController::class, 'update'])->name('update.mobil');
+    Route::get('/mobil/delete/{slug}', [AdminMobilController::class, 'delete'])->name('delete.mobil');
 });
 
 require __DIR__ . '/auth.php';
