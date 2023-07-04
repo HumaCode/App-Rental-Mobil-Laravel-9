@@ -60,7 +60,7 @@
                                 <td>
                                     <img src="{{ url($item->gambar) }}" class="img-fluid" alt="">
                                 </td>
-                                <td>{{ $item->merek }}</td>
+                                <td>{{ $item->merekMobil->merek }}</td>
                                 <td>{{ $item->nama_mobil }}</td>
                                 <td class="text-center">
                                     @if ($item->status == 1)

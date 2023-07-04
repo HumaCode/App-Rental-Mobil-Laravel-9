@@ -34,7 +34,7 @@ class AdminMobilController extends Controller
     {
         $request->validate([
             'nama_mobil'    => 'required',
-            'merek'         => 'required',
+            'merek_id'      => 'required',
             'tahun'         => 'required',
             'jml_kursi'     => 'required',
             'jenis_bbm'     => 'required',
@@ -43,16 +43,16 @@ class AdminMobilController extends Controller
             'gambar'        => 'required|image|mimes:png,jpg|max:5000',
         ], [
             'nama_mobil.required'           => 'Nama mobil tidak boleh kosong..!!',
-            'merek.required'                => 'Merek mobil tidak boleh kosong..!!',
+            'merek_id.required'             => 'Merek mobil tidak boleh kosong..!!',
             'tahun.required'                => 'Tahun mobil tidak boleh kosong..!!',
             'jml_kursi.required'            => 'Jumlah kursi tidak boleh kosong..!!',
             'jenis_bbm.required'            => 'Jenis bbm tidak boleh kosong..!!',
             'ket_lain.required'             => 'Keterangan lain tidak boleh kosong..!!',
             'harga_sewa.required'           => 'Harga sewa tidak boleh kosong..!!',
             'gambar.required'               => 'Gambar mobil tidak boleh kosong..!!',
-            'gambar.image'                    => 'Yang anda upload bukan gambar..!!',
-            'gambar.mimes'                    => 'Format gambar tidak valid..!!',
-            'gambar.max'                      => 'Gambar terlalu besar, maks 5 MB..!!',
+            'gambar.image'                  => 'Yang anda upload bukan gambar..!!',
+            'gambar.mimes'                  => 'Format gambar tidak valid..!!',
+            'gambar.max'                    => 'Gambar terlalu besar, maks 5 MB..!!',
         ]);
 
         $data_mobil = new Mobil();
@@ -78,7 +78,7 @@ class AdminMobilController extends Controller
 
         $data_mobil->nama_mobil       = $request->nama_mobil;
         $data_mobil->slug             = $request->slug;
-        $data_mobil->merek            = $request->merek;
+        $data_mobil->merek_id         = $request->merek_id;
         $data_mobil->tahun            = $request->tahun;
         $data_mobil->jml_kursi        = $request->jml_kursi;
         $data_mobil->jenis_bbm        = $request->jenis_bbm;
@@ -99,6 +99,7 @@ class AdminMobilController extends Controller
     {
         $data = [
             'dataMobil' => Mobil::where('slug', $slug)->first(),
+            'merek'     => BrandMobil::get(),
         ];
 
         return view('backend.edit_mobil', $data);
@@ -108,7 +109,7 @@ class AdminMobilController extends Controller
     {
         $request->validate([
             'nama_mobil'    => 'required',
-            'merek'         => 'required',
+            'merek_id'      => 'required',
             'tahun'         => 'required',
             'jml_kursi'     => 'required',
             'jenis_bbm'     => 'required',
@@ -117,7 +118,7 @@ class AdminMobilController extends Controller
             'gambar'        => 'nullable|image|mimes:png,jpg|max:5000',
         ], [
             'nama_mobil.required'           => 'Nama mobil tidak boleh kosong..!!',
-            'merek.required'                => 'Merek mobil tidak boleh kosong..!!',
+            'merek_id.required'             => 'Merek mobil tidak boleh kosong..!!',
             'tahun.required'                => 'Tahun mobil tidak boleh kosong..!!',
             'jml_kursi.required'            => 'Jumlah kursi tidak boleh kosong..!!',
             'jenis_bbm.required'            => 'Jenis bbm tidak boleh kosong..!!',
@@ -156,7 +157,7 @@ class AdminMobilController extends Controller
 
         $data_mobil->nama_mobil       = $request->nama_mobil;
         $data_mobil->slug             = $request->slug;
-        $data_mobil->merek            = $request->merek;
+        $data_mobil->merek_id         = $request->merek_id;
         $data_mobil->tahun            = $request->tahun;
         $data_mobil->jml_kursi        = $request->jml_kursi;
         $data_mobil->jenis_bbm        = $request->jenis_bbm;

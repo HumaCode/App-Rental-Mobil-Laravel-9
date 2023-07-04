@@ -46,9 +46,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="merek">Merek</label>
-                                <select id="merek" name="merek"
-                                    class="form-control input-rounded @error('merek') is-invalid @enderror">
+                                <label for="merek_id">Merek</label>
+                                <select id="merek_id" name="merek_id"
+                                    class="form-control input-rounded @error('merek_id') is-invalid @enderror">
                                     <option selected disabled>-- Pilih --</option>
 
                                     @foreach ($merek as $item)
@@ -56,7 +56,7 @@
                                     @endforeach
 
                                 </select>
-                                @error('merek')
+                                @error('merek_id')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
 
