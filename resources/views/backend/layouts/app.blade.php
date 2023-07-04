@@ -13,7 +13,7 @@ $setting = App\Models\Setting::findOrFail(1);
     <title>{{ $setting->title }} </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ $setting->logo == null ? asset('backend/images/noimage.png') : \Storage::url($setting->logo) }}">
+        href="{{ $setting->logo == null ? asset('backend/images/noimage.png') : url($setting->logo) }}">
     <link href="{{ asset('backend') }}/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/vendor/chartist/css/chartist.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
@@ -22,7 +22,7 @@ $setting = App\Models\Setting::findOrFail(1);
     @stack('css')
     <style>
         .nav-header .brand-title {
-            max-width: 150px;
+            max-width: 130px;
         }
     </style>
 

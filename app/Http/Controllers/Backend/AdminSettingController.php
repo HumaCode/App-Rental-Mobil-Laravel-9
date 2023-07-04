@@ -55,14 +55,20 @@ class AdminSettingController extends Controller
         if ($request->hasFile('logo')) {
 
             if ($setting->logo != null) {
-                Storage::delete($setting->logo);
+                // Storage::delete($setting->logo);
+                // unlink($setting->gambar);
             }
 
-            $image      = $request->file('logo');
-            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300);
+            // $image      = $request->file('logo');
+            // // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            // Image::make($image)->resize(300, 300);
 
-            $setting->logo = $request->file('logo')->store('public/uploads/logo');
+            // $setting->logo = $request->file('logo')->store('public/uploads/logo');
+
+            $image      = $request->file('logo');
+            $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(400, 200)->save('backend/uploads/logo/' . $name_gen);
+            $setting->logo   = 'backend/uploads/logo/' . $name_gen;
         }
         $setting->title             = $request->title;
         $setting->keyword           = $request->keyword;
