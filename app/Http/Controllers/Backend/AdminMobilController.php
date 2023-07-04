@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BrandMobil;
 use App\Models\Mobil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -24,7 +25,9 @@ class AdminMobilController extends Controller
 
     public function create()
     {
-        return view('backend.tambah_mobil');
+        $merek = BrandMobil::get();
+
+        return view('backend.tambah_mobil', compact('merek'));
     }
 
     public function store(Request $request)

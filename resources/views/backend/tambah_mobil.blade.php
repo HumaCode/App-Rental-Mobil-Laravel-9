@@ -47,12 +47,20 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="merek">Merek</label>
-                                <input type="text"
-                                    class="form-control input-rounded @error('merek') is-invalid @enderror" name="merek"
-                                    value="{{ old('merek') }}">
+                                <select id="merek" name="merek"
+                                    class="form-control input-rounded @error('merek') is-invalid @enderror">
+                                    <option selected disabled>-- Pilih --</option>
+
+                                    @foreach ($merek as $item)
+                                    <option value="{{ $item->id }}">{{ $item->merek }}</option>
+                                    @endforeach
+
+                                </select>
                                 @error('merek')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
+
+
                             </div>
                         </div>
                         <div class="col-md-4">

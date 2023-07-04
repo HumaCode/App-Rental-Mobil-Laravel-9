@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminMerekMobilController;
 use App\Http\Controllers\Backend\AdminMobilController;
 use App\Http\Controllers\Backend\AdminProfilController;
 use App\Http\Controllers\Backend\AdminSettingController;
@@ -46,6 +47,14 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/profil', [AdminProfilController::class, 'update'])->name('profile.update');
     Route::get('/profil-password', [AdminProfilController::class, 'ubahPassword'])->name('ubah.password');
     Route::post('/profil-password-update', [AdminProfilController::class, 'updatePassword'])->name('update.password');
+
+    Route::get('/merek/view', [AdminMerekMobilController::class, 'index'])->name('merek');
+    Route::get('/merek/create', [AdminMerekMobilController::class, 'create'])->name('tambah.merek');
+    Route::post('/merek/store', [AdminMerekMobilController::class, 'store'])->name('store.merek');
+    Route::get('/merek/edit/{id}', [AdminMerekMobilController::class, 'edit'])->name('edit.merek');
+    Route::post('/merek/update/{id}', [AdminMerekMobilController::class, 'update'])->name('update.merek');
+    Route::get('/merek/hapus/{id}', [AdminMerekMobilController::class, 'hapus'])->name('hapus.merek');
+
 
     Route::get('/mobil/view', [AdminMobilController::class, 'index'])->name('mobil');
     Route::get('/mobil/create', [AdminMobilController::class, 'create'])->name('create.mobil');

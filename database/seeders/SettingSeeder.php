@@ -26,6 +26,7 @@ class SettingSeeder extends Seeder
             'fb'                => 'www.facebook.com',
             'twitter'           => 'www.twitter.com',
             'ig'                => 'www.instagram.com',
+            'logo'              => 'backend/images/logo3.png',
             'created_at'        => date('Y-m-d H:i:s', time()),
             'updated_at'        => date('Y-m-d H:i:s', time()),
         ]);
