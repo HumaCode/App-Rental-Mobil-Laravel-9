@@ -58,12 +58,12 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}.</td>
                                 <td>
-                                    <img src="{{ \Storage::url($item->gambar) }}" class="img-fluid" alt="">
+                                    <img src="{{ url($item->gambar) }}" class="img-fluid" alt="">
                                 </td>
                                 <td>{{ $item->merek }}</td>
                                 <td>{{ $item->nama_mobil }}</td>
                                 <td class="text-center">
-                                    @if ($item->status == 'tersedia')
+                                    @if ($item->status == 1)
                                     <span class="badge badge-success text-white">tersedia</span>
                                     @else
                                     <span class="badge badge-danger text-white">tidak tersedia</span>

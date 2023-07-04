@@ -60,11 +60,17 @@ class AdminMobilController extends Controller
             //     Storage::delete($setting->logo);
             // }
 
-            $image      = $request->file('gambar');
-            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); × 
-            Image::make($image)->resize(390, 226);
+            // $image      = $request->file('gambar');
+            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            // Image::make($image)->resize(500, 400);
 
-            $data_mobil->gambar = $request->file('gambar')->store('public/uploads/mobil');
+            // $data_mobil->gambar = $request->file('gambar')->store('public/uploads/mobil');
+
+
+            $image      = $request->file('gambar');
+            $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(500, 360)->save('backend/uploads/mobil/' . $name_gen);
+            $data_mobil->gambar    = 'backend/uploads/mobil/' . $name_gen;
         }
 
         $data_mobil->nama_mobil       = $request->nama_mobil;
@@ -75,7 +81,7 @@ class AdminMobilController extends Controller
         $data_mobil->jenis_bbm        = $request->jenis_bbm;
         $data_mobil->ket_lain         = $request->ket_lain;
         $data_mobil->harga_sewa       = $request->harga_sewa;
-        $data_mobil->status           = 'tersedia';
+        $data_mobil->status           = 1;
         $data_mobil->save();
 
         $notification = array(
@@ -124,14 +130,20 @@ class AdminMobilController extends Controller
         if ($request->hasFile('gambar')) {
 
             if ($data_mobil->gambar != null) {
-                Storage::delete($data_mobil->gambar);
+                // Storage::delete($data_mobil->gambar);
+                unlink($data_mobil->gambar);
             }
 
-            $image      = $request->file('gambar');
-            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); × 
-            Image::make($image)->resize(390, 226);
+            // $image      = $request->file('gambar');
+            // // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); × 
+            // Image::make($image)->resize(390, 226);
 
-            $data_mobil->gambar = $request->file('gambar')->store('public/uploads/mobil');
+            // $data_mobil->gambar = $request->file('gambar')->store('public/uploads/mobil');
+
+            $image      = $request->file('gambar');
+            $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(500, 360)->save('backend/uploads/mobil/' . $name_gen);
+            $data_mobil->gambar    = 'backend/uploads/mobil/' . $name_gen;
         }
 
         $data_mobil->nama_mobil       = $request->nama_mobil;
@@ -142,7 +154,7 @@ class AdminMobilController extends Controller
         $data_mobil->jenis_bbm        = $request->jenis_bbm;
         $data_mobil->ket_lain         = $request->ket_lain;
         $data_mobil->harga_sewa       = $request->harga_sewa;
-        $data_mobil->status           = 'tersedia';
+        // $data_mobil->status           = 'tersedia';
         $data_mobil->save();
 
         $notification = array(
@@ -157,7 +169,7 @@ class AdminMobilController extends Controller
     {
         $dataMobil = Mobil::where('slug', $slug)->first();
 
-        if ($dataMobil->status == 'tidak tersedia') {
+        if ($dataMobil->status == '0') {
             $notification = array(
                 'message'       => 'Tidak dapat menghapus data',
                 'alert-type'    => 'error',
@@ -167,7 +179,8 @@ class AdminMobilController extends Controller
         }
 
         if ($dataMobil->gambar != null) {
-            Storage::delete($dataMobil->gambar);
+            // Storage::delete($dataMobil->gambar);
+            unlink($dataMobil->gambar);
         }
 
         $dataMobil->delete();

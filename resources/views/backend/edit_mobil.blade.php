@@ -117,12 +117,24 @@
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" checked id="invalidCheck">
+                            <label class="form-check-label text-dark" for="invalidCheck">
+                                Status Mobil
+                            </label>
+                            {{-- <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div> --}}
+                        </div>
+                    </div>
+
                     <hr>
 
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <img src="{{ \Storage::url($dataMobil->gambar) }}" class="img-fluid" class="mb-2"
-                                width="30%" alt="" id="showImage">
+                            <img src="{{ url($dataMobil->gambar) }}" class="img-fluid" class="mb-2" width="30%" alt=""
+                                id="showImage">
                             {{-- <img
                                 src="{{ $setting->logo == null ? asset('backend/images/noimage.png') : \Storage::url($setting->logo) }}"
                                 class="img-fluid" class="mb-2" width="30%" alt="" id="showImage"> --}}

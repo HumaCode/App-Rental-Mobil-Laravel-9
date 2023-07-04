@@ -1,3 +1,7 @@
+@php
+$setting = App\Models\Setting::findOrFail(1);
+@endphp
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -6,15 +10,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Focus - Bootstrap Admin Dashboard </title>
+    <title>{{ $setting->title }} </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ $setting->logo == null ? asset('backend/images/noimage.png') : \Storage::url($setting->logo) }}">
     <link href="{{ asset('backend') }}/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/vendor/chartist/css/chartist.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     @stack('css')
+    <style>
+        .nav-header .brand-title {
+            max-width: 150px;
+        }
+    </style>
 
 </head>
 
