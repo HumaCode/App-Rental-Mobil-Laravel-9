@@ -12,8 +12,7 @@ $setting = App\Models\Setting::findOrFail(1);
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ $setting->title }} </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ $setting->logo == null ? asset('backend/images/noimage.png') : url($setting->logo) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{  url($setting->logo) }}">
     <link href="{{ asset('backend') }}/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/vendor/chartist/css/chartist.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
