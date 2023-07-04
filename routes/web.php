@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminMobilController;
 use App\Http\Controllers\Backend\AdminProfilController;
 use App\Http\Controllers\Backend\AdminSettingController;
 use App\Http\Controllers\ProfileController;
@@ -45,6 +46,8 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/profil', [AdminProfilController::class, 'update'])->name('profile.update');
     Route::get('/profil-password', [AdminProfilController::class, 'ubahPassword'])->name('ubah.password');
     Route::post('/profil-password-update', [AdminProfilController::class, 'updatePassword'])->name('update.password');
+
+    Route::get('/data-mobil', [AdminMobilController::class, 'index'])->name('mobil');
 });
 
 require __DIR__ . '/auth.php';

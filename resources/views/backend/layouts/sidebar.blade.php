@@ -8,6 +8,8 @@
 
             <li><a href="{{ route('dashboard') }}" aria-expanded="false"><i class="icon icon-world-2"></i><span
                         class="nav-text">Dashboard</span></a></li>
+            <li><a href="{{ route('mobil') }}" aria-expanded="false"><i class="icon icon-world-2"></i><span
+                        class="nav-text">Daftar Mobil</span></a></li>
 
             <li class="nav-label">Lainya</li>
 
