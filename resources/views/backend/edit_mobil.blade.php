@@ -82,7 +82,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jml_kursi">Jumlah Kursi</label>
                                 <input type="number" min="0"
@@ -93,7 +93,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jenis_bbm">Jenis BBM</label>
                                 <input type="text"
@@ -104,17 +104,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="harga_sewa">Harga Sewa</label>
-                                <input type="number" min="0"
-                                    class="form-control input-rounded @error('harga_sewa') is-invalid @enderror"
-                                    name="harga_sewa" value="{{ old('harga_sewa', $dataMobil->harga_sewa) }}">
-                                @error('harga_sewa')
-                                <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="form-group">
@@ -127,7 +117,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" name="status" type="checkbox"
                                 value="{{ $dataMobil->status == 1 ? '1' : '0' }}" {{ $dataMobil->status == 1 ? 'checked'

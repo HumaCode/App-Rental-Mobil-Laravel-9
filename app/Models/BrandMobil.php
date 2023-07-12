@@ -10,4 +10,9 @@ class BrandMobil extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function mobil()
+    {
+        return $this->hasMany(Mobil::class, 'merek_id', 'id');
+    }
 }

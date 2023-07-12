@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jml_kursi">Jumlah Kursi</label>
                                 <input type="number" min="0"
@@ -88,24 +88,13 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jenis_bbm">Jenis BBM</label>
                                 <input type="text"
                                     class="form-control input-rounded @error('jenis_bbm') is-invalid @enderror"
                                     name="jenis_bbm" value="{{ old('jenis_bbm') }}">
                                 @error('jenis_bbm')
-                                <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="harga_sewa">Harga Sewa</label>
-                                <input type="number" min="0"
-                                    class="form-control input-rounded @error('harga_sewa') is-invalid @enderror"
-                                    name="harga_sewa" value="{{ old('harga_sewa') }}">
-                                @error('harga_sewa')
                                 <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>

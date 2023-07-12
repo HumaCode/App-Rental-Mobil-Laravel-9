@@ -8,7 +8,7 @@
 
                 <ul class="navbar-nav header-right">
 
-                    <li class="nav-item dropdown notification_dropdown">
+                    {{-- <li class="nav-item dropdown notification_dropdown">
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                             <i class="mdi mdi-bell"></i>
                             <div class="pulse-css"></div>
@@ -69,7 +69,7 @@
                             </ul>
                             <a class="all-notification" href="#">Lihat Notifikasi <i class="ti-arrow-right"></i></a>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">

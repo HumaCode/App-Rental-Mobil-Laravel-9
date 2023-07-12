@@ -71,6 +71,19 @@ class AdminMerekMobilController extends Controller
 
     public function hapus($id)
     {
+
+        $brand = BrandMobil::find($id);
+
+        if ($brand->mobil()->count() > 0) {
+
+            $notification = array(
+                'message'       => 'Merek Mobil tidak dapat di hapus, karena sedang di gunakan di tabel lain',
+                'alert-type'    => 'error',
+            );
+
+            return redirect()->back()->with($notification);
+        }
+
         BrandMobil::find($id)->delete();
 
         $notification = array(

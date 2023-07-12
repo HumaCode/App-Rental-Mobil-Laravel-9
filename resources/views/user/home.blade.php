@@ -118,7 +118,7 @@
 
          @forelse ($daftarmobil as $item)
 
-         <div class="col-md-4">
+         <div class="col-md-4 mb-5">
             <div class="gallery_box">
                <div class="gallery_img"><img src="{{ $item->gambar }}"></div>
                <h3 class="types_text">{{ $item->nama_mobil }}</h3>

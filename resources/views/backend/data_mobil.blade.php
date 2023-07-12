@@ -48,7 +48,7 @@
                                 <th width="20%">Gambar</th>
                                 <th>Merek</th>
                                 <th>Nama Mobil</th>
-                                <th>Status</th>
+                                <th>Tahun</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -62,13 +62,8 @@
                                 </td>
                                 <td>{{ $item->merekMobil->merek }}</td>
                                 <td>{{ $item->nama_mobil }}</td>
-                                <td class="text-center">
-                                    @if ($item->status == 1)
-                                    <span class="badge badge-success text-white">tersedia</span>
-                                    @else
-                                    <span class="badge badge-danger text-white">tidak tersedia</span>
-                                    @endif
-                                </td>
+                                <td>{{ $item->tahun }}</td>
+
                                 <td class="text-center">
                                     <a href="{{ route('edit.mobil', $item->slug) }}"
                                         class="btn btn-success btn-sm btn-flat mr-2"><i class="fa fa-edit"></i>
