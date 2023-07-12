@@ -86,7 +86,12 @@
 
  
    @yield('content')
-
+   <a href="https://api.whatsapp.com/send?phone=6282399231548" target="_blank">
+      <button class="btn-floating whatsapp">
+         <img src="assets/images/wa.png">
+          <span>082399231548</span>
+      </button>
+  </a>
 
    <!-- footer section start -->
    <div class="footer_section layout_padding">
