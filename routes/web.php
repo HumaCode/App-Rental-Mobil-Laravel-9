@@ -6,7 +6,18 @@ use App\Http\Controllers\Backend\AdminMobilController;
 use App\Http\Controllers\Backend\AdminProfilController;
 use App\Http\Controllers\Backend\AdminSettingController;
 use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\KontakController;
+// use App\Http\Controllers\DetailController;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +31,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('user.home');
 });
+
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('kendaraan', [KendaraanController::class, 'index'])->name('kendaraan');
+Route::get('layanan', [LayananController::class, 'index'])->name('layanan');
+Route::get('kontak', [KontakController::class, 'index'])->name('kontak');
+Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('client', [ClientController::class, 'index'])->name('client');
+
+Route::get('detailmobil', [DetailController::class, 'index'])->name('detailmobil');
+
+
+
 
 // Route::get('/dashboard', function () {
 //     return view('backend.dashboard');
