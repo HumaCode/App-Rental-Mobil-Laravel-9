@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -17,19 +15,20 @@
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- bootstrap css -->
-   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/bootstrap.min.css">
    <!-- style css -->
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/style.css">
    <!-- Responsive-->
-   <link rel="stylesheet" href="assets/css/responsive.css">
+   <link rel="stylesheet" href="{{ asset('assets') }}/css/responsive.css">
    <!-- fevicon -->
-   <link rel="icon" href="assets/images/fevicon.png" type="image/gif" />
+   <link rel="icon" href="{{ asset('assets') }}/images/fevicon.png" type="image/gif" />
    <!-- font css -->
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap"
       rel="stylesheet">
    <!-- Scrollbar Custom CSS -->
-   <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+   <link rel="stylesheet" href="{{ asset('assets') }}/css/jquery.mCustomScrollbar.min.css">
+   <link rel="stylesheet" href="{{ asset('assets') }}/css/iziToast.min.css">
    <!-- Tweaks for older IEs-->
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
@@ -37,6 +36,11 @@
    <!-- GARDENER -->
    <link href="assetgarden/css/style.css" rel="stylesheet">
 
+   <style>
+      .search_btn {
+         height: 50px;
+      }
+   </style>
 
 </head>
 
@@ -45,36 +49,38 @@
    <div class="header_section">
       <div class="container">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logoar.png" width="40%"></a>
+            <a class="navbar-brand" href="index.html"><img src="{{ asset('assets') }}/images/logoar.png"
+                  width="40%"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav ml-auto">
+
                   <li class="nav-item">
-                     <a href="{{ url('home') }}" class="nav-item nav-link 
-                     {{ $title == ('Home') ? 'active' : '' }}">Home</a>
+                     <a href="{{ url('home') }}" class="nav-item nav-link {{ Request::is('home') || Request::is('/') ? 'active' : '' }}
+                     ">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a href="{{ url('kendaraan') }}" class="nav-item nav-link 
-                     {{ $title == ('Kendaraan') ? 'active' : '' }}">Kendaraan</a>
+                     <a href="{{ url('kendaraan') }}" class="nav-item nav-link  {{ Request::is('kendaraan') ? 'active' : '' }}
+   ">Kendaraan</a>
                   </li>
                   <li class="nav-item">
-                     <a href="{{ url('layanan') }}" class="nav-item nav-link 
-                     {{ $title == ('Layanan') ? 'active' : '' }}">Layanan</a>
+                     <a href="{{ url('layanan') }}" class="nav-item nav-link {{ Request::is('layanan') ? 'active' : '' }}
+                     ">Layanan</a>
                   </li>
                   <li class="nav-item">
-                     <a href="{{ url('about') }}" class="nav-item nav-link 
-                     {{ $title == ('About') ? 'active' : '' }}">Tentang</a>
+                     <a href="{{ url('about') }}" class="nav-item nav-link {{ Request::is('about') ? 'active' : '' }}
+                     ">Tentang</a>
                   </li>
+                  {{-- <li class="nav-item">
+                     <a href="{{ url('client') }}" class="nav-item nav-link {{ Request::is('client') ? 'active' : '' }}
+                     ">Testimoni</a>
+                  </li> --}}
                   <li class="nav-item">
-                     <a  href="{{ url('client') }}" class="nav-item nav-link 
-                     {{ $title == ('Client') ? 'active' : '' }}">Client</a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="{{ url('kontak') }}" class="nav-item nav-link 
-                     {{ $title == ('Kontak Kami') ? 'active' : '' }}">Kontak</a>
+                     <a href="{{ url('kontak') }}" class="nav-item nav-link {{ Request::is('kontak') ? 'active' : '' }}
+                     ">Kontak</a>
                   </li>
                </ul>
                <form class="form-inline my-2 my-lg-0">
@@ -84,7 +90,7 @@
       </div>
    </div>
 
- 
+
    @yield('content')
 
 
@@ -93,38 +99,40 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <div class="footeer_logo"><img src="assets/images/logoar.png" width="30%"></div>
+               <div class="footeer_logo"><img src="{{ asset('assets') }}/images/logoar.png" width="30%"></div>
             </div>
          </div>
          <div class="footer_section_2">
             <div class="row">
-              
+
                <div class="col">
                   <h4 class="footer_taital">Informasi</h4>
-                  <p class="lorem_text">Kami menyediakan paket penyewaan yang fleksibel, mulai dari sewa harian, mingguan, hingga bulanan.
+                  <p class="lorem_text">Kami menyediakan paket penyewaan yang fleksibel, mulai dari sewa harian,
+                     mingguan, hingga bulanan.
                   </p>
                </div>
-               
+
                <div class="col">
                   <h4 class="footer_taital">Layanan</h4>
-                  <p class="lorem_text">Layanan sewa mobil kami memberikan Anda fleksibilitas, kenyamanan, dan kebebasan untuk menjelajahi tempat tujuan Anda dengan mudah.
+                  <p class="lorem_text">Layanan sewa mobil kami memberikan Anda fleksibilitas, kenyamanan, dan kebebasan
+                     untuk menjelajahi tempat tujuan Anda dengan mudah.
                   </p>
                </div>
-               
+
                <div class="col">
                   <h4 class="footer_taital">Menu</h4>
-                    <div class="location_text"><a href="home"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                    class="padding_left_15">Halaman Home</span></a></div>
-                    <div class="location_text"><a href="kendaraan"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                    class="padding_left_15">Halaman Kendaraan</span></a></div>
-                    <div class="location_text"><a href="layanan"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                    class="padding_left_15">Halaman Layanan</span></a></div>
-                    <div class="location_text"><a href="about"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                    class="padding_left_15">Halaman Tentang</span></a></div>    
-                    <div class="location_text"><a href="client"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                    class="padding_left_15">Halaman Client</span></a></div>
-                </div>
-               
+                  <div class="location_text"><a href="home"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
+                           class="padding_left_15">Halaman Home</span></a></div>
+                  <div class="location_text"><a href="kendaraan"><i class="fa fa-arrow-right"
+                           aria-hidden="true"></i><span class="padding_left_15">Halaman Kendaraan</span></a></div>
+                  <div class="location_text"><a href="layanan"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
+                           class="padding_left_15">Halaman Layanan</span></a></div>
+                  <div class="location_text"><a href="about"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
+                           class="padding_left_15">Halaman Tentang</span></a></div>
+                  <div class="location_text"><a href="client"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
+                           class="padding_left_15">Halaman Client</span></a></div>
+               </div>
+
                <div class="col">
                   <h4 class="footer_taital">Kontak Kami</h4>
                   <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
@@ -160,14 +168,48 @@
    </div>
    <!-- copyright section end -->
    <!-- Javascript files-->
-   <script src="assets/js/jquery.min.js"></script>
-   <script src="assets/js/popper.min.js"></script>
-   <script src="assets/js/bootstrap.bundle.min.js"></script>
-   <script src="assets/js/jquery-3.0.0.min.js"></script>
-   <script src="assets/js/plugin.js"></script>
+   <script src="{{ asset('assets') }}/js/jquery.min.js"></script>
+   <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+   <script src="{{ asset('assets') }}/js/bootstrap.bundle.min.js"></script>
+   <script src="{{ asset('assets') }}/js/jquery-3.0.0.min.js"></script>
+   <script src="{{ asset('assets') }}/js/plugin.js"></script>
+   <script src="{{ asset('assets') }}/js/iziToast.min.js"></script>
    <!-- sidebar -->
-   <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-   <script src="assets/js/custom.js"></script>
+   <script src="{{ asset('assets') }}/js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="{{ asset('assets') }}/js/custom.js"></script>
+
+   @stack('scripts')
+
+   @if ($errors->any())
+   @foreach ($errors->all() as $error)
+   <script>
+      iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ $error }}',
+                });
+   </script>
+   @endforeach
+   @endif
+
+   @if (session()->get('error'))
+   <script>
+      iziToast.error({
+                position: 'topRight',
+                message: '{{ session()->get('error') }}',
+            });
+   </script>
+   @endif
+
+
+   @if (session()->get('success'))
+   <script>
+      iziToast.success({
+                position: 'topRight',
+                message: '{{ session()->get('success') }}',
+            });
+   </script>
+   @endif
 </body>
 
 </html>

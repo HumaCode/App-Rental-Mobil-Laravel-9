@@ -14,6 +14,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\TestimoniController;
 // use App\Http\Controllers\DetailController;
 
 use Illuminate\Support\Facades\Route;
@@ -30,20 +31,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('user.home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('kendaraan', [KendaraanController::class, 'index'])->name('kendaraan');
-Route::get('layanan', [LayananController::class, 'index'])->name('layanan');
-Route::get('kontak', [KontakController::class, 'index'])->name('kontak');
-Route::get('about', [AboutController::class, 'index'])->name('about');
-Route::get('client', [ClientController::class, 'index'])->name('client');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/kendaraan', [KendaraanController::class, 'index'])->name('kendaraan');
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
+Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/client', [ClientController::class, 'index'])->name('client');
 
-Route::get('detailmobil', [DetailController::class, 'index'])->name('detailmobil');
+Route::get('detailmobil/{slug}', [DetailController::class, 'index'])->name('detailmobil');
 
+Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni');
 
 
 
