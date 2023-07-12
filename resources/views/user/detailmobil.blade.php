@@ -71,13 +71,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mail_section_1">
-                                    <input type="text" class="mail_text" placeholder="Nama Lengkap" name="Name">
-                                    <input type="text" class="mail_text" placeholder="Nomor Telepon"
-                                        name="Phone Number">
-                                    <input type="text" class="mail_text" placeholder="Email" name="Email">
-                                    <textarea class="massage-bt" placeholder="Saya ingin menyakan tarif" rows="5"
-                                        id="comment" name="Massage"></textarea>
-                                    <div class="send_bt"><a href="#">Kirim</a></div>
+
+                                    <form action="{{ route('penawaran2') }}" method="POST">
+                                        @csrf
+
+                                        <input type="hidden" name="nama_mobil" value="{{ $mobilDetail->nama_mobil }}">
+                                        <input type="hidden" name="tahun" value="{{ $mobilDetail->tahun }}">
+
+                                        <input type="text" class="mail_text" placeholder="Nama" name="name">
+
+                                        <textarea class="massage-bt" name="message" placeholder="Tulis pesan disini"
+                                            rows="5" id="comment" name="Massage"></textarea>
+                                        <center>
+                                            <button type="submit" class="btn btn-danger btn-lg">Kirim</button>
+                                        </center>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>

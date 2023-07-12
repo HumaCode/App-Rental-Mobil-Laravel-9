@@ -43,6 +43,9 @@ Route::get('/client', [ClientController::class, 'index'])->name('client');
 Route::get('detailmobil/{slug}', [DetailController::class, 'index'])->name('detailmobil');
 
 Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni');
+Route::post('/penawaran', [TestimoniController::class, 'penawaran'])->name('penawaran');
+
+Route::post('/penawaran2', [TestimoniController::class, 'penawaran2'])->name('penawaran2');
 
 
 

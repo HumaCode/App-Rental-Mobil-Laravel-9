@@ -46,59 +46,27 @@
             <h1 class="gallery_taital">Penawaran Terbaik</h1>
          </div>
       </div>
-      <div class="gallery_section_2">
-         <div class="row">
+      <div class="row mt-4">
 
-            @forelse ($daftarmobil as $value)
-            <div class="col-md-4">
-               <div class="gallery_box">
-                  <div class="gallery_img"><img src="{{ asset($value->gambar) }}"></div>
-                  <h3 class="types_text">{{ $value->nama_mobil }}</h3>
-                  <div class="read_bt"><a href="{{ route('detailmobil', $value->slug) }}">Detail</a></div>
-               </div>
+         @forelse ($daftarmobil as $value)
+         <div class="col-md-4">
+            <div class="gallery_box">
+               <div class="gallery_img"><img src="{{ asset($value->gambar) }}"></div>
+               <h3 class="types_text">{{ $value->nama_mobil }}</h3>
+               <div class="read_bt"><a href="{{ route('detailmobil', $value->slug) }}">Detail</a></div>
             </div>
-            @empty
-
-            <center>
-               <div class="alert alert-danger ">
-                  Tidak ada data
-               </div>
-            </center>
-
-            @endforelse
-
          </div>
+         @empty
+
+         <center>
+            <div class="alert alert-danger ">
+               Tidak ada data
+            </div>
+         </center>
+
+         @endforelse
+
       </div>
-      {{-- <div class="gallery_section_2">
-         <div class="row">
-            <div class="col-md-4">
-               <div class="gallery_box">
-                  <div class="gallery_img">
-                     <src="{{ url($item->gambar) }}">
-                  </div>
-                  <h3 class="types_text"></h3>
-                  <p class="looking_text"></p>
-                  <div class="read_bt"><a href="#">Book Now</a></div>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <div class="gallery_box">
-                  <div class="gallery_img"><img src="images/img-2.png"></div>
-                  <h3 class="types_text">Toyota car</h3>
-                  <p class="looking_text">Start per day $4500</p>
-                  <div class="read_bt"><a href="#">Book Now</a></div>
-               </div>
-            </div>
-            <div class="col-md-4">
-               <div class="gallery_box">
-                  <div class="gallery_img"><img src="images/img-3.png"></div>
-                  <h3 class="types_text">Toyota car</h3>
-                  <p class="looking_text">Start per day $4500</p>
-                  <div class="read_bt"><a href="#">Book Now</a></div>
-               </div>
-            </div>
-         </div>
-      </div> --}}
    </div>
 </div>
 <!-- gallery section end -->

@@ -116,7 +116,7 @@
 
       <div class="row">
 
-         @foreach ($daftarmobil as $item)
+         @forelse ($daftarmobil as $item)
 
          <div class="col-md-4">
             <div class="gallery_box">
@@ -125,7 +125,15 @@
                <div class="read_bt"><a href="{{ route('detailmobil', $item->slug) }}">Cek Sekarang</a></div>
             </div>
          </div>
-         @endforeach
+         @empty
+
+         <center>
+            <div class="alert alert-danger ">
+               Tidak ada data
+            </div>
+         </center>
+
+         @endforelse
 
 
       </div>
@@ -250,6 +258,13 @@
             </div>
          </div>
       </div>
+
+      <a href="https://api.whatsapp.com/send?phone=6282399231548" target="_blank">
+         <button class="btn-floating whatsapp">
+            <img src="assets/images/wa.png">
+            <span>082399231548</span>
+         </button>
+      </a>
    </div>
 </div>
 </div>

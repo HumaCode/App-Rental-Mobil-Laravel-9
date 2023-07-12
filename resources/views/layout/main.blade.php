@@ -10,10 +10,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Aries Rental | {{ $title }}</title>
-   <meta name="keywords" content="">
-   <meta name="description" content="">
-   <meta name="author" content="">
+   <title>{{ $setting->title }} | {{ $title }}</title>
+   <meta name="keywords" content="{{ $setting->keyword }}">
+   <meta name="description" content="{{ $setting->meta_description }}">
+   <meta name="author" content="{{ $setting->title }}">
    <!-- bootstrap css -->
    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/bootstrap.min.css">
    <!-- style css -->
@@ -21,7 +21,7 @@
    <!-- Responsive-->
    <link rel="stylesheet" href="{{ asset('assets') }}/css/responsive.css">
    <!-- fevicon -->
-   <link rel="icon" href="{{ asset('assets') }}/images/fevicon.png" type="image/gif" />
+   <link rel="icon" href="{{ $setting->logo }}" type="image/gif" />
    <!-- font css -->
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap"
@@ -49,8 +49,7 @@
    <div class="header_section">
       <div class="container">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html"><img src="{{ asset('assets') }}/images/logoar.png"
-                  width="40%"></a>
+            <a class="navbar-brand" href="index.html"><img src="{{ $setting->logo }}" width="40%"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
@@ -92,19 +91,14 @@
 
 
    @yield('content')
-   <a href="https://api.whatsapp.com/send?phone=6282399231548" target="_blank">
-      <button class="btn-floating whatsapp">
-         <img src="assets/images/wa.png">
-          <span>082399231548</span>
-      </button>
-  </a>
+
 
    <!-- footer section start -->
    <div class="footer_section layout_padding">
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <div class="footeer_logo"><img src="{{ asset('assets') }}/images/logoar.png" width="30%"></div>
+               <div class="footeer_logo"><img src="{{ $setting->logo }}" width="30%"></div>
             </div>
          </div>
          <div class="footer_section_2">
@@ -134,8 +128,8 @@
                            class="padding_left_15">Halaman Layanan</span></a></div>
                   <div class="location_text"><a href="about"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
                            class="padding_left_15">Halaman Tentang</span></a></div>
-                  <div class="location_text"><a href="client"><i class="fa fa-arrow-right" aria-hidden="true"></i><span
-                           class="padding_left_15">Halaman Client</span></a></div>
+                  {{-- <div class="location_text"><a href="client"><i class="fa fa-arrow-right"
+                           aria-hidden="true"></i><span class="padding_left_15">Halaman Client</span></a></div> --}}
                </div>
 
                <div class="col">
@@ -144,14 +138,14 @@
                            class="padding_left_15">Sorong
                            Papua Barat</span></a></div>
                   <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
-                           class="padding_left_15">0823-9923-1548</span></a></div>
+                           class="padding_left_15">{{ $setting->telp }}</span></a></div>
                   <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
-                           class="padding_left_15">ariesrental@gmail.com</span></a></div>
+                           class="padding_left_15">{{ $setting->email_web }}</span></a></div>
                   <div class="social_icon">
                      <ul>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ $setting->fb }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ $setting->twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ $setting->ig }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         {{-- <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> --}}
                      </ul>
                   </div>
@@ -166,7 +160,7 @@
       <div class="container">
          <div class="row">
             <div class="col-sm-12">
-               <p class="copyright_text">2023 All Rights Reserved. Design by Aries Rental</p>
+               <p class="copyright_text">2023 All Rights Reserved. Design by {{ $setting->title }}</p>
             </div>
          </div>
       </div>

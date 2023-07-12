@@ -75,21 +75,21 @@
                         @enderror
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="location">Lokasi &nbsp;<a href="{{ $setting->location }}"
-                                        target="_blank"><small class="text-danger"><b>(lihat)</b></small></a></label>
+                    <div class="form-group">
+                        <label for="location">Lokasi </label>
 
-                                <input type="text"
-                                    class="form-control input-rounded @error('location') is-invalid @enderror"
-                                    name="location" value="{{ $setting->location }}">
-                                @error('location')
-                                <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <textarea name="location" id="location"
+                            class="form-control @error('location') is-invalid @enderror"
+                            rows="5">{{ $setting->location }}</textarea>
+                        @error('location')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="telp">Telepon</label>
 
@@ -102,7 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="email_web">Email</label>

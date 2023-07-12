@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -10,6 +11,7 @@ class AboutController extends Controller
     {
         $data = [
             "title" => "About",
+            "setting" => Setting::find(1),
         ];
         return view("user.about", $data);
     }   //

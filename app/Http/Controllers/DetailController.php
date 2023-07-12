@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mobil;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
@@ -11,7 +12,8 @@ class DetailController extends Controller
     {
         $data = [
             "title" => "Detail Mobil",
-            'mobilDetail' => Mobil::where('slug', $slug)->first()
+            'mobilDetail' => Mobil::where('slug', $slug)->first(),
+            "setting" => Setting::find(1),
         ];
         return view("user.detailmobil", $data);
     }   //
