@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BrandMobil;
 use App\Models\Mobil;
+use App\Models\Motor;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class KendaraanController extends Controller
             "title" => "Kendaraan",
             "daftarmobil"   => $models,
             "brandMobil"    => BrandMobil::get(),
+            "daftarmotor"   => Motor::orderBy('id', 'desc')->get(),
             "setting" => Setting::find(1),
         ];
         return view("user.kendaraan", $data);

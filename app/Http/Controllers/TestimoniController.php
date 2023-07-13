@@ -53,21 +53,24 @@ class TestimoniController extends Controller
 
     public function penawaran(Request $request)
     {
+        $setting = Setting::find(1);
+        $phone = $setting->telp;
+
+        // dd($phone);
+
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
             'message' => 'required',
         ]);
 
 
         $data = [
             'nama' => $request->name,
-            'email' => $request->email,
             'pesan' => $request->message,
         ];
 
 
-        $phone = '6282324118692';
+
 
 
         // Membangun pesan dengan format teks
@@ -88,20 +91,27 @@ class TestimoniController extends Controller
 
     public function penawaran2(Request $request)
     {
+        $setting = Setting::find(1);
+
         $request->validate([
             'name' => 'required',
             'message' => 'required',
         ]);
 
+        if ($request->nama_mobil) {
+            $item = $request->nama_mobil;
+        } else {
+            $item = $request->nama_motor;
+        }
 
         $data = [
             'nama' => $request->name,
-            'nama_mobil' => $request->nama_mobil . ' tahun ' . $request->tahun,
+            'topik' => $item . ' tahun ' . $request->tahun,
             'pesan' => $request->message,
         ];
 
 
-        $phone = '6282324118692';
+        $phone = $setting->telp;
 
 
         // Membangun pesan dengan format teks

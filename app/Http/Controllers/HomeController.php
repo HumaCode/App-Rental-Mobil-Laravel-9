@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BrandMobil;
 use App\Models\Mobil;
+use App\Models\Motor;
 use App\Models\Setting;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
@@ -19,11 +20,10 @@ class HomeController extends Controller
             $models = Mobil::orderBy('id', 'desc')->take(6)->get();
         }
 
-
-
         $data = [
             "title"         => "Home",
             "daftarmobil"   => $models,
+            "daftarmotor"   => Motor::orderBy('id', 'desc')->get(),
             "brandMobil"    => BrandMobil::get(),
             "testimoni"     => Testimoni::orderBy('id', 'desc')->take(6)->get(),
             "setting"       => Setting::find(1),

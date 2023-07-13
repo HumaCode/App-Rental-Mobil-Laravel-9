@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mobil;
+use App\Models\Motor;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-    public function index($slug)
+    public function detailmobil($slug)
     {
         $data = [
             "title" => "Detail Mobil",
@@ -16,5 +17,15 @@ class DetailController extends Controller
             "setting" => Setting::find(1),
         ];
         return view("user.detailmobil", $data);
+    }   //
+
+    public function detailmotor($slug)
+    {
+        $data = [
+            "title" => "Detail Motor",
+            'motorDetail' => Motor::where('slug', $slug)->first(),
+            "setting" => Setting::find(1),
+        ];
+        return view("user.detailmotor", $data);
     }   //
 }

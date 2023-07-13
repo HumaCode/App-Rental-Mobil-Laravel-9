@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('keyword');
             $table->text('meta_description');
             $table->text('about');
-            $table->string('location');
+            $table->text('location');
             $table->string('telp');
             $table->string('email_web');
             $table->string('fb');

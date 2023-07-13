@@ -42,7 +42,8 @@ Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 
-Route::get('detailmobil/{slug}', [DetailController::class, 'index'])->name('detailmobil');
+Route::get('/detailmobil/{slug}', [DetailController::class, 'detailmobil'])->name('detailmobil');
+Route::get('/detailmotor/{slug}', [DetailController::class, 'detailmotor'])->name('detailmotor');
 
 Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni');
 Route::post('/penawaran', [TestimoniController::class, 'penawaran'])->name('penawaran');
