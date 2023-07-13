@@ -6,8 +6,10 @@
             </li> -->
 
 
-            <li><a href="{{ route('dashboard') }}" aria-expanded="false"><i class="fa fa-tachometer"
-                        aria-hidden="true"></i><span class="nav-text">Dashboard</span></a></li>
+            <li>
+                <a href="{{ route('dashboard') }}" aria-expanded="false"><i class="fa fa-tachometer"
+                        aria-hidden="true"></i><span class="nav-text">Dashboard</span></a>
+            </li>
 
 
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa fa-car"
@@ -15,7 +17,13 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('merek') }}">Merek Mobil</a></li>
                     <li><a href="{{ route('mobil') }}">Daftar Mobil</a></li>
+
                 </ul>
+            </li>
+
+            <li>
+                <a href="{{ route('admin.testimoni') }}" aria-expanded="false"><i class="fa fa-smile-o"
+                        aria-hidden="true"></i><span class="nav-text">Testimoni</span></a>
             </li>
 
             <li class="nav-label">Lainya</li>

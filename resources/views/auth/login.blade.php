@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>LOGIN</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $setting->logo }}">
     <link href="{{ asset('backend') }}/css/style.css" rel="stylesheet">
 
 </head>

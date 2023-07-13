@@ -2,11 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class TestimoniController extends Controller
 {
+    public function index()
+    {
+        $data = [
+            "testimoni"   => Testimoni::orderBy('id', 'desc')->get(),
+        ];
+        return view('backend.testimoni', $data);
+    }
+
+    public function delete($id)
+    {
+        Testimoni::find($id)->delete();
+
+        $notification = array(
+            'message'       => 'Data berhasil dihapus',
+            'alert-type'    => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([

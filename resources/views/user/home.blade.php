@@ -259,10 +259,10 @@
          </div>
       </div>
 
-      <a href="https://api.whatsapp.com/send?phone=6282399231548" target="_blank">
+      <a href="https://api.whatsapp.com/send?phone={{ $setting->telp }}" target="_blank">
          <button class="btn-floating whatsapp">
             <img src="assets/images/wa.png">
-            <span>082399231548</span>
+            <span>{{ $setting->title }}</span>
          </button>
       </a>
    </div>

@@ -81,6 +81,8 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/merek/update/{id}', [AdminMerekMobilController::class, 'update'])->name('update.merek');
     Route::get('/merek/hapus/{id}', [AdminMerekMobilController::class, 'hapus'])->name('hapus.merek');
 
+    Route::get('/admin/testimoni', [TestimoniController::class, 'index'])->name('admin.testimoni');
+    Route::get('/admin/delete-testimoni/{id}', [TestimoniController::class, 'delete'])->name('admin.delete_testimoni');
 
     Route::get('/mobil/view', [AdminMobilController::class, 'index'])->name('mobil');
     Route::get('/mobil/create', [AdminMobilController::class, 'create'])->name('create.mobil');

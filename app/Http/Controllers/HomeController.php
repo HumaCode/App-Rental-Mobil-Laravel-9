@@ -25,7 +25,7 @@ class HomeController extends Controller
             "title"         => "Home",
             "daftarmobil"   => $models,
             "brandMobil"    => BrandMobil::get(),
-            "testimoni"     => Testimoni::orderBy('id', 'desc')->take(9)->get(),
+            "testimoni"     => Testimoni::orderBy('id', 'desc')->take(6)->get(),
             "setting"       => Setting::find(1),
         ];
         return view("user.home", $data);
