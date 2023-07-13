@@ -118,7 +118,6 @@ class AdminMobilController extends Controller
             'jml_kursi.required'            => 'Jumlah kursi tidak boleh kosong..!!',
             'jenis_bbm.required'            => 'Jenis bbm tidak boleh kosong..!!',
             'ket_lain.required'             => 'Keterangan lain tidak boleh kosong..!!',
-            'harga_sewa.required'           => 'Harga sewa tidak boleh kosong..!!',
             'gambar.image'                  => 'Yang anda upload bukan gambar..!!',
             'gambar.mimes'                  => 'Format gambar tidak valid..!!',
             'gambar.max'                    => 'Gambar terlalu besar, maks 5 MB..!!',

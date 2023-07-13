@@ -25,7 +25,7 @@
                         class="fa fa-motorcycle"></i><span class="nav-text">Rental Motor</span></a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('merek_motor') }}">Merek Motor</a></li>
-                    {{-- <li><a href="{{ route('motor') }}">Daftar Motor</a></li> --}}
+                    <li><a href="{{ route('motor') }}">Daftar Motor</a></li>
 
                 </ul>
             </li>

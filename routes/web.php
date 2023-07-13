@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Backend\AdminMerekMotorController;
+use App\Http\Controllers\Backend\AdminMotorController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\LayananController;
@@ -92,6 +93,14 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/mobil/edit/{slug}', [AdminMobilController::class, 'edit'])->name('edit.mobil');
     Route::post('/mobil/update/{slug}', [AdminMobilController::class, 'update'])->name('update.mobil');
     Route::get('/mobil/delete/{slug}', [AdminMobilController::class, 'delete'])->name('delete.mobil');
+
+    Route::get('/motor/view', [AdminMotorController::class, 'index'])->name('motor');
+    Route::get('/motor/create', [AdminMotorController::class, 'create'])->name('create.motor');
+    Route::get('/motor/checkSlug', [AdminMotorController::class, 'checkSlug']);
+    Route::post('/motor/store', [AdminMotorController::class, 'store'])->name('store.motor');
+    Route::get('/motor/edit/{slug}', [AdminMotorController::class, 'edit'])->name('edit.motor');
+    Route::post('/motor/update/{slug}', [AdminMotorController::class, 'update'])->name('update.motor');
+    Route::get('/motor/delete/{slug}', [AdminMotorController::class, 'delete'])->name('delete.motor');
 
     Route::get('/merek-motor/view', [AdminMerekMotorController::class, 'index'])->name('merek_motor');
     Route::get('/merek-motor/create', [AdminMerekMotorController::class, 'create'])->name('tambah.merek_motor');
