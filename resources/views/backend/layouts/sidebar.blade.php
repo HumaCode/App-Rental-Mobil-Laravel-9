@@ -21,6 +21,15 @@
                 </ul>
             </li>
 
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                        class="fa fa-motorcycle"></i><span class="nav-text">Rental Motor</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('merek_motor') }}">Merek Motor</a></li>
+                    {{-- <li><a href="{{ route('motor') }}">Daftar Motor</a></li> --}}
+
+                </ul>
+            </li>
+
             <li>
                 <a href="{{ route('admin.testimoni') }}" aria-expanded="false"><i class="fa fa-smile-o"
                         aria-hidden="true"></i><span class="nav-text">Testimoni</span></a>
